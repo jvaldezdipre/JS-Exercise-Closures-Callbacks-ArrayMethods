@@ -135,8 +135,9 @@ function processProduct(num1, num2, callback) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
  */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
+function processDuplicateFree(list, callback) {
   /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
+  return callback(list.filter((dupe, match) => list.indexOf(dupe) === match));
 }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -157,8 +158,11 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  *
  * [2] Invoking `lowerCaseStrings` with `['a', 'b', 'c' ]` will return `[ 'a', 'b', 'c' ]`.
  */
-function lowerCaseStrings(/* code here */) {
+function lowerCaseStrings(strings) {
   /* code here */
+  let lowerCase = [];
+  strings.forEach(item => lowerCase.push(item.toLowerCase()));
+  return lowerCase;
 }
 
 /**
@@ -176,8 +180,13 @@ function lowerCaseStrings(/* code here */) {
  *
  * [2] Invoking `isItAnApple` with `['a', 'b', 'c' ]` will return `[ false, false, false ]`.
  */
-function isItAnApple(/* code here */) {
+function isItAnApple(strings) {
   /* code here */
+  return strings.map(item => {
+    if (item === "apple") {
+      return true;
+    } else return false;
+  });
 }
 
 /**
@@ -196,8 +205,11 @@ function isItAnApple(/* code here */) {
  *
  * [2] Invoking `removeApple` with `['a', 'b', 'c' ]` will return `[ 'a', 'b', 'c' ]`.
  */
-function removeApple(/* code here */) {
+function removeApple(strings) {
   /* code here */
+  return strings.filter(item => {
+    return item !== "apple";
+  });
 }
 
 /**
@@ -215,8 +227,11 @@ function removeApple(/* code here */) {
  *
  * [2] Invoking `stringSmash` with `['a', 'b', 'c' ]` will return `abc`.
  */
-function stringSmash(/* code here */) {
+function stringSmash(strings) {
   /* code here */
+  return strings.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  });
 }
 
 // A local community center is holding a fund raising 5k fun run and has invited
@@ -234,8 +249,11 @@ function stringSmash(/* code here */) {
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
  */
-function getFullNames(/* CODE HERE */) {
+function getFullNames(runners) {
   /* CODE HERE */
+  return runners.map(item => {
+    return `${item.last_name}, ${item.first_name}`;
+  });
 }
 
 /**
@@ -250,8 +268,11 @@ function getFullNames(/* CODE HERE */) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
  */
-function firstNamesAllCaps(/* CODE HERE */) {
+function firstNamesAllCaps(runners) {
   /* CODE HERE */
+  return runners.map(item => {
+    return `${item.first_name.toUpperCase()}`;
+  });
 }
 
 /**
